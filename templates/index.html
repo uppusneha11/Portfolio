@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sneha Uppu - Portfolio</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <span class="logo-text">SU</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#experience">Experience</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="particles-js" id="particles-js"></div>
+        <div class="container">
+            <div class="row align-items-center min-vh-100">
+                <div class="col-lg-6" data-aos="fade-right">
+                    <h1 class="display-3 fw-bold mb-3">
+                        Hi, I'm <span class="gradient-text">Sneha Uppu</span>
+                    </h1>
+                    <h2 class="h3 mb-4 typing-text">
+                        <span id="typed-text"></span>
+                    </h2>
+                    <p class="lead mb-4">
+                        Where Curiosity Meets Code - Crafting Solutions That Matter
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#projects" class="btn btn-outline-light btn-lg me-3" target="_blank">
+                            View Projects
+                        </a>
+                        <a href="{{ url_for('static', filename='resume.pdf') }}" class="btn btn-outline-light btn-lg me-3" target="_blank">
+                            <i class="fas fa-download"></i> Resume
+                        </a>
+                    </div>
+                    <div class="social-links mt-4">
+                        <a href="https://github.com/uppusneha11" target="_blank" class="social-icon">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/sneha-uppu-6a019b238/" target="_blank" class="social-icon">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="mailto:uppusneha11@gmail.com" class="social-icon">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+                <!-- <div class="col-lg-6" data-aos="fade-left">
+                    <div class="hero-image">
+                        <div class="floating-card">
+                            <i class="fas fa-code fa-3x"></i>
+                            <p class="mt-2 mb-0">Clean Code</p>
+                        </div>
+                        <div class="floating-card" style="animation-delay: 0.5s;">
+                            <i class="fas fa-laptop-code fa-3x"></i>
+                            <p class="mt-2 mb-0">Responsive Design</p>
+                        </div>
+                        <div class="floating-card" style="animation-delay: 1s;">
+                            <i class="fas fa-rocket fa-3x"></i>
+                            <p class="mt-2 mb-0">Fast Performance</p>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+        <div class="scroll-down">
+            <a href="#about">
+                <i class="fas fa-chevron-down"></i>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section-padding bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center mb-5" data-aos="fade-up">
+                    <h2 class="section-title">About Me</h2>
+                    <div class="title-underline"></div>
+                </div>
+            </div>
+            <div class="row align-items-center">
+                <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
+                    <div class="about-image">
+                        <img src="{{url_for('static',filename='images/profile.jpg')}}" alt="Sneha Uppu" class="profile-photo">
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left">
+                    <h3 class="h2 mb-4">Hello! I'm Sneha Uppu</h3>
+                    <p class="lead mb-4">
+                        A passionate Computer Science Graduate Student at the George Washington Usnitersity, with a strong focus on data analytics, data science, and applied machine learning. 
+                    </p>
+                    <p class="mb-4">
+                        My journey in tech is driven by an insatiable curiosity to understand how data tells stories and how technology can transform those stories into actionable insights.
+                        I enjoy working with complex, real-world data and building end-to-end solutions—from data cleaning and exploratory analysis to modeling, dashboards, and production-ready systems.
+                    </p>
+                    <p class="mb-4">
+                        My work spans both analytical and engineering-oriented problem solving, combining data analysis with practical implementation. 
+                        I’m naturally curious and enjoy learning new tools, improving workflows, and understanding how technical decisions translate into real-world impact. 
+                        I’m especially motivated by roles where data is used to inform decisions, drive outcomes, and solve meaningful problems.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center mb-5" data-aos="fade-up">
+                    <h2 class="section-title">My Experience</h2>
+                    <div class="title-underline"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-10 mx-auto">
+                    <!-- Experience Item 1 -->
+                    <div class="experience-item mb-5" data-aos="fade-up">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h5 class="experience-year">2023 - Present</h5>
+                            </div>
+                            <div class="col-md-9">
+                                <h4 class="experience-title">Job Title</h4>
+                                <h6 class="experience-company">Company Name</h6>
+                                <p class="experience-description">
+                                    Description of your role and responsibilities. What you accomplished and the technologies you used.
+                                </p>
+                                <div class="experience-tags">
+                                    <span class="tag">Python</span>
+                                    <span class="tag">Flask</span>
+                                    <span class="tag">JavaScript</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Experience Item 2 -->
+                    <div class="experience-item mb-5" data-aos="fade-up" data-aos-delay="100">
+                        <div class="row">
+                            <div class="col-md-3">
+                                <h5 class="experience-year">2022 - 2023</h5>
+                            </div>
+                            <div class="col-md-9">
+                                <h4 class="experience-title">Previous Job Title</h4>
+                                <h6 class="experience-company">Previous Company</h6>
+                                <p class="experience-description">
+                                    Description of your previous role and key achievements.
+                                </p>
+                                <div class="experience-tags">
+                                    <span class="tag">HTML/CSS</span>
+                                    <span class="tag">Bootstrap</span>
+                                    <span class="tag">React</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Add more experience items as needed -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section-padding bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center mb-5" data-aos="fade-up">
+                    <h2 class="section-title">My Projects</h2>
+                    <div class="title-underline"></div>
+                    <p class="lead mt-3">Check out my latest work</p>
+                </div>
+            </div>
+            
+            <!-- GitHub Username Input -->
+            <div class="row mb-4">
+                <div class="col-lg-6 mx-auto">
+                    <div class="input-group" data-aos="fade-up">
+                        <input type="text" id="github-username" class="form-control" 
+                               placeholder="Enter GitHub username" value="octocat">
+                        <button class="btn btn-primary" id="load-repos-btn">
+                            <i class="fas fa-sync-alt"></i> Load Repositories
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" id="projects-container">
+                <!-- Projects will be loaded dynamically -->
+                <div class="col-12 text-center">
+                    <p class="text-muted">Enter a GitHub username to load repositories</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center mb-5" data-aos="fade-up">
+                    <h2 class="section-title">My Skills</h2>
+                    <div class="title-underline"></div>
+                    <p class="lead mt-3">Technologies and tools I work with</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div id="skills-container" class="skills-grid">
+                        <!-- Skills will be loaded dynamically -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center mb-5" data-aos="fade-up">
+                    <h2 class="section-title">Get In Touch</h2>
+                    <div class="title-underline"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <div class="row">
+                        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+                            <div class="contact-card">
+                                <div class="contact-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <h5>Email</h5>
+                                <p>uppusneha11@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+                            <div class="contact-card">
+                                <div class="contact-icon">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <h5>Phone</h5>
+                                <p>+1 (703) 906 7139</p>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+                            <div class="contact-card">
+                                <div class="contact-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <h5>Location</h5>
+                                <p>Arlington, VA</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <form class="contact-form mt-4" data-aos="fade-up">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <input type="text" class="form-control" placeholder="Your Name" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <input type="email" class="form-control" placeholder="Your Email" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" placeholder="Subject" required>
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" rows="5" placeholder="Your Message" required></textarea>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                <i class="fas fa-paper-plane"></i> Send Message
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p class="mb-2">&copy; 2024 Sneha Uppu. All rights reserved.</p>
+                    <p class="mb-0">Built with <i class="fas fa-heart text-danger"></i> using Flask, Bootstrap & APIs</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- AOS Animation -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- Particles.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    
+    <!-- Typed.js -->
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+    
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
+

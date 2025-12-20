@@ -1,0 +1,4 @@
+# Exclude personal files
+static/resume.pdf
+static/images/profile.jpg
+
