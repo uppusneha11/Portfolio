@@ -1,61 +1,60 @@
-# Interactive Portfolio Website
+# Portfolio Website
 
-A beautiful, modern, and interactive portfolio website built with **Flask**, **Bootstrap 5**, **Jinja2 Templates**, and **REST APIs**.
+A clean, modern portfolio website showcasing my projects, skills, and experience in Data Engineering, Data Analysis, and Data Science.
+
+## 🚀 Live Demo
+
+Deployed on [Render](https://render.com)
 
 ## ✨ Features
 
-- **Modern & Responsive Design**: Beautiful UI that works seamlessly across all devices
+- **Responsive Design**: Works seamlessly on all devices
+- **Interactive Particle Background**: Dynamic particle effects on the homepage
+- **Accordion Experience Section**: Expandable job experiences with descriptions
+- **Project Showcase**: Display projects with images and descriptions
+- **Dynamic Skills**: Skills loaded dynamically and organized by category
+- **Contact Form**: Integrated with FormSubmit for easy message handling
 - **Smooth Animations**: Powered by AOS (Animate On Scroll) library
-- **Interactive Elements**: 
-  - Particle.js background effects
-  - Typing animation for job titles
-  - Smooth scrolling navigation
-  - Animated skill progress bars
-  - Counter animations for statistics
-- **API Integration**:
-  - GitHub API for displaying repositories
-  - Quotable API for inspiring quotes
-  - Custom Flask API endpoints
-- **Sections**:
-  - Hero section with animated elements
-  - About section with dynamic quote
-  - Skills section with animated progress bars
-  - Projects section with GitHub integration
-  - Contact section with form
 
 ## 🛠️ Technologies Used
 
-- **Backend**: Flask (Python)
-- **Frontend**: HTML5, CSS3, JavaScript
-- **Framework**: Bootstrap 5
-- **Templating**: Jinja2
-- **APIs**: 
-  - GitHub REST API
-  - Quotable API
-- **Libraries**:
-  - Particles.js
-  - Typed.js
-  - AOS (Animate On Scroll)
-  - Font Awesome
+**Backend:**
+- Flask (Python)
+
+**Frontend:**
+- HTML5, CSS3, JavaScript
+- Bootstrap 5
+- Particles.js for interactive background
+- Typed.js for typing animation
+- AOS for scroll animations
+- Font Awesome icons
+
+**Deployment:**
+- Render (Platform as a Service)
+- Gunicorn (WSGI server)
+
+**Contact Form:**
+- FormSubmit (no backend required)
 
 ## 📋 Prerequisites
 
 - Python 3.8 or higher
 - pip (Python package installer)
 
-## 🚀 Installation & Setup
+## 🚀 Local Setup
 
-1. **Navigate to the project directory**:
+1. **Clone the repository**:
    ```bash
-   cd /Users/snehauppu/Documents/Portfolio
+   git clone https://github.com/uppusneha11/Portfolio.git
+   cd Portfolio
    ```
 
-2. **Install required packages**:
+2. **Install dependencies**:
    ```bash
    pip install -r requirements.txt
    ```
 
-3. **Run the Flask application**:
+3. **Run the application**:
    ```bash
    python app.py
    ```
@@ -69,86 +68,44 @@ A beautiful, modern, and interactive portfolio website built with **Flask**, **B
 
 ```
 Portfolio/
-├── app.py                      # Main Flask application
-├── requirements.txt            # Python dependencies
-├── README.md                   # Project documentation
+├── app.py                  # Flask application
+├── requirements.txt        # Python dependencies
+├── Procfile               # Render deployment configuration
 ├── templates/
-│   └── index.html             # Main HTML template with Jinja2
+│   └── index.html         # Main HTML template
 ├── static/
 │   ├── css/
-│   │   └── style.css          # Custom CSS styles
+│   │   └── style.css      # Custom styles
 │   ├── js/
-│   │   └── script.js          # JavaScript for interactivity
-│   └── images/                # Image assets
+│   │   └── script.js      # JavaScript functionality
+│   ├── images/            # Project images and profile photo
+│   └── resume.pdf         # Resume file
 ```
 
 ## 🎨 Customization
 
-### Personal Information
-Edit the following in `templates/index.html`:
-- Name and title in the hero section
-- About section content
-- Contact information
-- Social media links
-
-### Skills
-Modify the skills data in `app.py` in the `get_skills()` function:
+### Update Skills
+Edit the skills in `app.py`:
 ```python
 skills = [
-    {'name': 'Your Skill', 'level': 90, 'category': 'frontend'},
-    # Add more skills...
+    {'category': 'Programming', 'items': ['Python', 'R', 'SQL']},
+    # Add your skills here
 ]
 ```
 
-### GitHub Projects
-Enter your GitHub username in the input field on the Projects section to load your repositories dynamically.
+### Update Projects
+Modify project details in `templates/index.html` in the Projects section.
 
-### Colors & Theme
-Edit CSS variables in `static/css/style.css`:
-```css
-:root {
-    --primary-color: #6366f1;
-    --secondary-color: #8b5cf6;
-    --dark-color: #1e293b;
-    /* Modify colors here */
-}
+### Change Contact Email
+Update the FormSubmit email in `templates/index.html`:
+```html
+<form action="https://formsubmit.co/your-email@example.com" method="POST">
 ```
 
-## 🔌 API Endpoints
+## 🌐 Deployment on Render
 
-- `GET /` - Main portfolio page
-- `GET /api/github/<username>` - Fetch GitHub repositories
-- `GET /api/quote` - Get random inspiring quote
-- `GET /api/skills` - Get skills data
-
-## 📱 Browser Support
-
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-
-## 🎯 Features to Explore
-
-1. **Particle Animation**: Hover and click on the hero section background
-2. **Dynamic Quotes**: Click "New Quote" button in the About section
-3. **GitHub Integration**: Enter any GitHub username to view repositories
-4. **Smooth Navigation**: Click nav links for smooth scrolling
-5. **Animated Skills**: Scroll to skills section to see animated progress bars
-
-## 🤝 Contributing
-
-Feel free to fork this project and customize it for your own portfolio!
-
-## 📄 License
-
-This project is open source and available under the MIT License.
-
-## 👤 Author
-
-**Sneha Uppu**
-
----
-
-**Made with ❤️ using Flask, Bootstrap & APIs**
-
+1. Push your code to GitHub
+2. Create a new **Web Service** on Render
+3. Connect your GitHub repository
+4. Render will automatically detect the `Procfile` and deploy your app
+5. Your portfolio will be live at `https://your-app-name.onrender.com`

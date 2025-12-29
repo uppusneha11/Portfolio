@@ -13,7 +13,6 @@ def home():
 @app.route('/api/skills')
 def get_skills():
     """Return skills data organized by categories - order is preserved"""
-    # Using a list to guarantee order preservation
     skills = [
         {'category': 'Programming', 'items': ['Python', 'R', 'SQL', 'Java']},
         {'category': 'Data Engineering', 'items': ['ETL', 'BeautifulSoup (Web Scraping)', 'Data Pipelines']},
