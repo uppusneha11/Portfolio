@@ -142,7 +142,7 @@ particlesJS('particles-js', {
         }
     },
     interactivity: {
-        detect_on: 'canvas',
+        detect_on: 'window',
         events: {
             onhover: {
                 enable: true,
@@ -153,6 +153,15 @@ particlesJS('particles-js', {
                 mode: 'push'
             },
             resize: true
+        },
+        modes: {
+            repulse: {
+                distance: 150,
+                duration: 0.4
+            },
+            push: {
+                particles_nb: 4
+            }
         }
     },
     retina_detect: true
@@ -192,38 +201,6 @@ document.querySelectorAll('.stat-number').forEach(counter => {
     counterObserver.observe(counter);
 });
 
-// Load inspiring quote
-async function loadQuote() {
-    const quoteText = document.getElementById('daily-quote');
-    const quoteAuthor = document.getElementById('quote-author');
-    
-    try {
-        quoteText.textContent = 'Loading...';
-        quoteAuthor.textContent = '';
-        
-        const response = await fetch('/api/quote');
-        const data = await response.json();
-        
-        if (data.success) {
-            quoteText.textContent = `"${data.quote.content}"`;
-            quoteAuthor.textContent = `— ${data.quote.author}`;
-        } else {
-            quoteText.textContent = '"The only way to do great work is to love what you do."';
-            quoteAuthor.textContent = '— Steve Jobs';
-        }
-    } catch (error) {
-        console.error('Error loading quote:', error);
-        quoteText.textContent = '"Code is like humor. When you have to explain it, it\'s bad."';
-        quoteAuthor.textContent = '— Cory House';
-    }
-}
-
-// Load quote on page load
-loadQuote();
-
-// New quote button
-document.getElementById('new-quote-btn').addEventListener('click', loadQuote);
-
 // Load skills from API
 async function loadSkills() {
     const skillsContainer = document.getElementById('skills-container');
@@ -234,41 +211,26 @@ async function loadSkills() {
         
         if (data.success) {
             skillsContainer.innerHTML = '';
-            data.skills.forEach((skill, index) => {
-                const skillItem = document.createElement('div');
-                skillItem.className = 'skill-item';
-                skillItem.setAttribute('data-aos', 'fade-up');
-                skillItem.setAttribute('data-aos-delay', index * 100);
+            
+            // Iterate through each category (order preserved from backend)
+            data.skills.forEach((skillCategory, catIndex) => {
+                const categoryDiv = document.createElement('div');
+                categoryDiv.className = 'skill-category';
+                categoryDiv.setAttribute('data-aos', 'fade-up');
+                categoryDiv.setAttribute('data-aos-delay', catIndex * 50);
                 
-                skillItem.innerHTML = `
-                    <div class="skill-header">
-                        <span class="skill-name">${skill.name}</span>
-                        <span class="skill-percentage">${skill.level}%</span>
-                    </div>
-                    <div class="skill-bar">
-                        <div class="skill-progress" data-level="${skill.level}"></div>
+                let skillsHTML = skillCategory.items.map(skill => 
+                    `<span class="skill-tag">${skill}</span>`
+                ).join('');
+                
+                categoryDiv.innerHTML = `
+                    <h3 class="skill-category-title">${skillCategory.category}</h3>
+                    <div class="skill-tags">
+                        ${skillsHTML}
                     </div>
                 `;
                 
-                skillsContainer.appendChild(skillItem);
-            });
-            
-            // Animate skill bars when in view
-            const skillObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const progressBar = entry.target.querySelector('.skill-progress');
-                        const level = progressBar.getAttribute('data-level');
-                        setTimeout(() => {
-                            progressBar.style.width = level + '%';
-                        }, 100);
-                        skillObserver.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.5 });
-            
-            document.querySelectorAll('.skill-item').forEach(item => {
-                skillObserver.observe(item);
+                skillsContainer.appendChild(categoryDiv);
             });
             
             AOS.refresh();
@@ -282,125 +244,8 @@ async function loadSkills() {
 // Load skills on page load
 loadSkills();
 
-// Load GitHub repositories
-async function loadGitHubRepos(username) {
-    const projectsContainer = document.getElementById('projects-container');
-    projectsContainer.innerHTML = `
-        <div class="col-12">
-            <div class="spinner-container">
-                <div class="spinner"></div>
-            </div>
-        </div>
-    `;
-    
-    try {
-        const response = await fetch(`/api/github/${username}`);
-        const data = await response.json();
-        
-        if (data.success && data.repos.length > 0) {
-            projectsContainer.innerHTML = '';
-            data.repos.forEach((repo, index) => {
-                const col = document.createElement('div');
-                col.className = 'col-lg-4 col-md-6 mb-4';
-                col.setAttribute('data-aos', 'fade-up');
-                col.setAttribute('data-aos-delay', index * 100);
-                
-                const language = repo.language || 'Code';
-                const description = repo.description || 'No description available';
-                const stars = repo.stargazers_count || 0;
-                const forks = repo.forks_count || 0;
-                
-                col.innerHTML = `
-                    <div class="project-card">
-                        <div class="project-icon">
-                            <i class="fas fa-code"></i>
-                        </div>
-                        <div class="project-body">
-                            <h3 class="project-title">${repo.name}</h3>
-                            <p class="project-description">${description}</p>
-                            <div class="project-stats">
-                                <span class="project-stat">
-                                    <i class="fas fa-star"></i>
-                                    ${stars}
-                                </span>
-                                <span class="project-stat">
-                                    <i class="fas fa-code-branch"></i>
-                                    ${forks}
-                                </span>
-                            </div>
-                            <div class="project-tags">
-                                <span class="project-tag">${language}</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="${repo.html_url}" target="_blank" class="project-link primary">
-                                    <i class="fab fa-github"></i> View Code
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                `;
-                
-                projectsContainer.appendChild(col);
-            });
-            
-            AOS.refresh();
-        } else {
-            projectsContainer.innerHTML = `
-                <div class="col-12 text-center">
-                    <p class="text-muted">No repositories found for user "${username}"</p>
-                </div>
-            `;
-        }
-    } catch (error) {
-        console.error('Error loading GitHub repos:', error);
-        projectsContainer.innerHTML = `
-            <div class="col-12 text-center">
-                <p class="text-danger">Error loading repositories. Please try again.</p>
-            </div>
-        `;
-    }
-}
-
-// Load repos button click handler
-document.getElementById('load-repos-btn').addEventListener('click', () => {
-    const username = document.getElementById('github-username').value.trim();
-    if (username) {
-        loadGitHubRepos(username);
-    } else {
-        alert('Please enter a GitHub username');
-    }
-});
-
-// Load repos on Enter key
-document.getElementById('github-username').addEventListener('keypress', (e) => {
-    if (e.key === 'Enter') {
-        const username = e.target.value.trim();
-        if (username) {
-            loadGitHubRepos(username);
-        }
-    }
-});
-
-// Contact form submission
-document.querySelector('.contact-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    // Get form data
-    const formData = new FormData(this);
-    
-    // Show success message
-    const submitBtn = this.querySelector('button[type="submit"]');
-    const originalText = submitBtn.innerHTML;
-    submitBtn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
-    submitBtn.disabled = true;
-    
-    // Reset form after 2 seconds
-    setTimeout(() => {
-        this.reset();
-        submitBtn.innerHTML = originalText;
-        submitBtn.disabled = false;
-    }, 2000);
-});
+// Contact form submission - FormSubmit handles this automatically
+// No JavaScript needed - form submits directly to FormSubmit
 
 // Add active class to nav links on scroll
 const sections = document.querySelectorAll('section[id]');
@@ -448,4 +293,30 @@ window.addEventListener('load', function() {
 
 console.log('%c Portfolio Loaded Successfully! ', 'background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 10px 20px; font-size: 16px; border-radius: 5px;');
 console.log('%c Made with ❤️ using Flask, Bootstrap & APIs ', 'color: #667eea; font-size: 14px;');
+
+// Experience Accordion Functionality
+document.addEventListener('DOMContentLoaded', function() {
+    const accordionHeaders = document.querySelectorAll('.accordion-header');
+    console.log('Found accordion headers:', accordionHeaders.length);
+    
+    accordionHeaders.forEach(header => {
+        header.addEventListener('click', function(e) {
+            console.log('Accordion clicked!', this.getAttribute('data-target'));
+            const target = this.getAttribute('data-target');
+            const content = document.getElementById(target);
+            
+            if (!content) {
+                console.error('Content not found for:', target);
+                return;
+            }
+            
+            // Toggle current accordion
+            this.classList.toggle('active');
+            content.classList.toggle('active');
+            
+            console.log('Toggled:', this.classList.contains('active'));
+        });
+    });
+});
+
 
