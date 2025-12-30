@@ -109,3 +109,4 @@ Update the FormSubmit email in `templates/index.html`:
 3. Connect your GitHub repository
 4. Render will automatically detect the `Procfile` and deploy your app
 5. Your portfolio will be live at `https://your-app-name.onrender.com`
+
