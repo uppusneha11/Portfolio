@@ -14,11 +14,12 @@ def home():
 def get_skills():
     """Return skills data organized by categories - order is preserved"""
     skills = [
-        {'category': 'Programming', 'items': ['Python', 'R', 'SQL', 'Java']},
-        {'category': 'Data Engineering', 'items': ['ETL', 'BeautifulSoup (Web Scraping)', 'Data Pipelines']},
-        {'category': 'Data Science', 'items': ['Pandas', 'NumPy', 'Scikit-learn', 'Seaborn', 'PyTorch', 'Tensorflow', 'Keras', 'Matplotlib']},
-        {'category': 'Databases', 'items': ['MySQL', 'PostgreSQL']},
-        {'category': 'Tools & Platforms', 'items': ['Tableau', 'PowerBI', 'GitHub', 'Salesforce', 'Jira', 'Microsoft Excel', 'APIs', 'MATLAB', 'Docker', 'Firebase', 'fly.io']},
+        {'category': 'Programming', 'items': ['Python', 'R', 'SQL', 'Java', 'HTML/CSS']},
+        {'category': 'Data Engineering', 'items': ['ETL Pipelines', 'BeautifulSoup (Web Scraping)', 'Apache Airflow', 'Docker', 'Data Validation']},
+        {'category': 'Data Visualization', 'items': ['Tableau','Power BI','Plotly', 'Matplotlib', 'Seaborn']},
+        {'category': 'Data Science', 'items': ['Pandas', 'NumPy', 'Scikit-learn', 'PyTorch', 'Tensorflow', 'Keras', 'API']},
+        {'category': 'Databases & Cloud', 'items': ['MySQL', 'PostgreSQL', 'Google Firebase', 'Firestore', 'AWS']},
+        {'category': 'Tools & Platforms', 'items': ['GitHub', 'Microsoft Office', 'Salesforce', 'Jira', 'MATLAB', 'fly.io']},
         {'category': 'IDEs', 'items': ['VS Code', 'Google Colab', 'Jupyter Notebook']},
         {'category': 'Soft Skills', 'items': ['Team Collaboration', 'Problem-Solving', 'Communication (Written & Verbal)', 'Time Management', 'Adaptability', 'Leadership']}
     ]
