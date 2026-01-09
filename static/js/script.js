@@ -18,8 +18,6 @@ const navbarCollapse = document.querySelector('.navbar-collapse');
 let menuTimeout;
 
 if (navbarToggler && navbarCollapse) {
-    const navContainer = navbarToggler.closest('.navbar');
-    
     navbarToggler.addEventListener('mouseenter', function() {
         clearTimeout(menuTimeout);
         navbarCollapse.classList.add('show');
@@ -154,49 +152,123 @@ particlesJS('particles-js', {
     retina_detect: true
 });
 
-function animateCounter(element) {
-    const target = parseInt(element.getAttribute('data-target'));
-    const duration = 2000;
-    const increment = target / (duration / 16);
-    let current = 0;
-
-    const updateCounter = () => {
-        current += increment;
-        if (current < target) {
-            element.textContent = Math.floor(current);
-            requestAnimationFrame(updateCounter);
-        } else {
-            element.textContent = target + '+';
-        }
+function loadSkills() {
+    const skillsContainer = document.getElementById('skills-container');
+    const scrollContainer1 = document.getElementById('skills-scroll-1');
+    const scrollContainer2 = document.getElementById('skills-scroll-2');
+    
+    // Skills data - ADD YOUR SKILLS HERE
+    const skills = [
+        {'category': 'Programming', 'items': ['Python', 'R', 'SQL', 'Java', 'HTML', 'CSS', 'JavaScript', 'Bootstrap']},
+        {'category': 'Data Engineering', 'items': ['ETL Pipelines', 'BeautifulSoup (Web Scraping)', 'Apache Airflow', 'Docker', 'Data Validation']},
+        {'category': 'Data Visualization', 'items': ['Tableau','Power BI','Plotly', 'Matplotlib', 'Seaborn']},
+        {'category': 'Data Science', 'items': ['Pandas', 'NumPy', 'Scikit-learn', 'PyTorch', 'Tensorflow', 'Keras', 'API']},
+        {'category': 'Databases & Cloud', 'items': ['MySQL', 'PostgreSQL', 'Google Firebase', 'Firestore', 'AWS']},
+        {'category': 'Tools & Platforms', 'items': ['Git', 'GitHub', 'Microsoft Office', 'Salesforce', 'Jira', 'MATLAB', 'fly.io']},
+        {'category': 'IDEs', 'items': ['VS Code', 'Google Colab', 'Jupyter Notebook']},
+        {'category': 'Soft Skills', 'items': ['Team Collaboration', 'Problem-Solving', 'Communication (Written & Verbal)', 'Time Management', 'Adaptability', 'Leadership']}
+    ];
+    
+    // Icon mappings \
+    const availableIconMappings = {
+        // Programming 
+        'python': { name: 'Python', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
+        'r': { name: 'R', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/r/r-original.svg' },
+        'sql': { name: 'SQL', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
+        'java': { name: 'Java', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg' },
+        'html': { name: 'HTML', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
+        'css': { name: 'CSS', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
+        'javascript': { name: 'JavaScript', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
+        'bootstrap': { name: 'Bootstrap', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg' },
+        'html/css': { name: 'HTML/CSS', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
+        
+        // Data Engineering
+        'docker': { name: 'Docker', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg' },
+        'apache airflow': { name: 'Airflow', imgSrc: 'https://upload.wikimedia.org/wikipedia/commons/d/de/AirflowLogo.png' },
+        
+        // Data Visualization
+        'tableau': { name: 'Tableau', imgSrc: 'https://cdn.worldvectorlogo.com/logos/tableau-software.svg' },
+        'matplotlib': { name: 'Matplotlib', imgSrc: 'https://upload.wikimedia.org/wikipedia/commons/8/84/Matplotlib_icon.svg' },
+        
+        // Data Science (all images for consistency)
+        'pandas': { name: 'Pandas', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg' },
+        'numpy': { name: 'NumPy', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg' },
+        'scikit-learn': { name: 'Scikit-learn', imgSrc: 'https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg' },
+        'pytorch': { name: 'PyTorch', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg' },
+        'tensorflow': { name: 'TensorFlow', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg' },
+        'keras': { name: 'Keras', imgSrc: 'https://upload.wikimedia.org/wikipedia/commons/a/ae/Keras_logo.svg' },
+        
+        // Databases & Cloud
+        'mysql': { name: 'MySQL', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
+        'postgresql': { name: 'PostgreSQL', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg' },
+        'firebase': { name: 'Firebase', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg' },
+        'google firebase': { name: 'Firebase', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg' },
+        'aws': { name: 'AWS', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg' },
+        
+        // Tools
+        'git': { name: 'Git', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg' },
+        'github': { name: 'GitHub', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg' },
+        'salesforce': { name: 'Salesforce', imgSrc: 'https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg' },
+        'jira': { name: 'Jira', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg' },
+        'matlab': { name: 'MATLAB', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/matlab/matlab-original.svg' },
+        
+        // IDEs
+        'vs code': { name: 'VS Code', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg' },
+        'jupyter': { name: 'Jupyter', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg' },
+        'jupyter notebook': { name: 'Jupyter', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg' }
     };
-
-    updateCounter();
-}
-
-const counterObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            animateCounter(entry.target);
-            counterObserver.unobserve(entry.target);
+    
+    // Extract and match skills
+    const allUserSkills = [];
+    skills.forEach(category => {
+        category.items.forEach(skill => allUserSkills.push(skill));
+    });
+    
+    const matchedSkills = [];
+    allUserSkills.forEach(userSkill => {
+        const normalized = userSkill.toLowerCase().trim();
+        if (availableIconMappings[normalized]) {
+            matchedSkills.push({
+                ...availableIconMappings[normalized],
+                originalName: userSkill
+            });
         }
     });
-}, { threshold: 0.5 });
-
-document.querySelectorAll('.stat-number').forEach(counter => {
-    counterObserver.observe(counter);
-});
-
-async function loadSkills() {
-    const skillsContainer = document.getElementById('skills-container');
+    
+    // Remove duplicates
+    const uniqueSkills = matchedSkills.filter((skill, index, self) =>
+        index === self.findIndex(s => (s.icon || s.imgSrc) === (skill.icon || skill.imgSrc))
+    );
     
     try {
-        const response = await fetch('/api/skills');
-        const data = await response.json();
-        
-        if (data.success) {
-            skillsContainer.innerHTML = '';
+        // Load scrolling carousel
+        if (scrollContainer1 && scrollContainer2 && uniqueSkills.length > 0) {
+            const iconsHTML = uniqueSkills.map(skill => {
+                if (skill.imgSrc) {
+                    return `
+                        <div class="skill-icon-item" data-skill="${skill.originalName}">
+                            <img src="${skill.imgSrc}" alt="${skill.originalName}" class="skill-icon-img">
+                            <span class="skill-tooltip">${skill.originalName}</span>
+                        </div>
+                    `;
+                } else {
+                    return `
+                        <div class="skill-icon-item" data-skill="${skill.originalName}">
+                            <i class="${skill.icon}"></i>
+                            <span class="skill-tooltip">${skill.originalName}</span>
+                        </div>
+                    `;
+                }
+            }).join('');
             
-            data.skills.forEach((skillCategory, catIndex) => {
+            scrollContainer1.innerHTML = iconsHTML;
+            scrollContainer2.innerHTML = iconsHTML;
+        }
+        
+        // Load traditional grid
+        if (skillsContainer) {
+            skillsContainer.innerHTML = '';
+            skills.forEach((skillCategory, catIndex) => {
                 const categoryDiv = document.createElement('div');
                 categoryDiv.className = 'skill-category';
                 categoryDiv.setAttribute('data-aos', 'fade-up');
@@ -215,15 +287,14 @@ async function loadSkills() {
                 
                 skillsContainer.appendChild(categoryDiv);
             });
-            
-            AOS.refresh();
         }
+        
+        AOS.refresh();
     } catch (error) {
         console.error('Error loading skills:', error);
-        skillsContainer.innerHTML = '<p class="text-center text-muted">Error loading skills</p>';
+        if (skillsContainer) skillsContainer.innerHTML = '<p class="text-center text-muted">Error loading skills</p>';
     }
 }
-
 
 loadSkills();
 
@@ -249,27 +320,12 @@ function activateNavLink() {
 
 window.addEventListener('scroll', activateNavLink);
 
-const revealElements = document.querySelectorAll('[data-aos]');
-const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('aos-animate');
-        }
-    });
-}, {
-    threshold: 0.15
-});
-
-revealElements.forEach(element => {
-    revealObserver.observe(element);
-});
-
 window.addEventListener('load', function() {
     document.body.classList.add('loaded');
 });
 
 console.log('%c Portfolio Loaded Successfully! ', 'background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 10px 20px; font-size: 16px; border-radius: 5px;');
-console.log('%c Made with ❤️ using Flask, Bootstrap & APIs ', 'color: #667eea; font-size: 14px;');
+console.log('%c Made with ❤️ using HTML, CSS, JavaScript & Bootstrap ', 'color: #667eea; font-size: 14px;');
 
 document.addEventListener('DOMContentLoaded', function() {
     const accordionHeaders = document.querySelectorAll('.accordion-header');

@@ -1,112 +1,169 @@
-# Portfolio Website
+# Sneha Uppu - Portfolio Website
 
-A clean, modern portfolio website showcasing my projects, skills, and experience in Data Engineering, Data Analysis, and Data Science.
+A modern, responsive portfolio website showcasing my skills, projects, and experience in data science and software engineering.
 
 ## 🚀 Live Demo
 
-Deployed on [Render](https://render.com)
+Visit my portfolio: [Your Vercel URL will appear here after deployment]
 
 ## ✨ Features
 
-- **Responsive Design**: Works seamlessly on all devices
-- **Interactive Particle Background**: Dynamic particle effects on the homepage
-- **Accordion Experience Section**: Expandable job experiences with descriptions
-- **Project Showcase**: Display projects with images and descriptions
-- **Dynamic Skills**: Skills loaded dynamically and organized by category
-- **Contact Form**: Integrated with FormSubmit for easy message handling
-- **Smooth Animations**: Powered by AOS (Animate On Scroll) library
+- **Responsive Design**: Fully responsive and mobile-friendly
+- **Modern UI/UX**: Clean, professional design with smooth animations
+- **Interactive Elements**: 
+  - Particle.js background animations
+  - Typing effect for role descriptions
+  - Smooth scroll navigation
+  - Animated skill tags
+  - Collapsible experience sections
+- **Contact Form**: Integrated with FormSubmit for easy contact
+- **Fast Loading**: Static site with optimized performance
 
 ## 🛠️ Technologies Used
 
-**Backend:**
-- Flask (Python)
-
-**Frontend:**
-- HTML5, CSS3, JavaScript
-- Bootstrap 5
-- Particles.js for interactive background
-- Typed.js for typing animation
-- AOS for scroll animations
-- Font Awesome icons
-
-**Deployment:**
-- Render (Platform as a Service)
-- Gunicorn (WSGI server)
-
-**Contact Form:**
-- FormSubmit (no backend required)
-
-## 📋 Prerequisites
-
-- Python 3.8 or higher
-- pip (Python package installer)
-
-## 🚀 Local Setup
-
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/uppusneha11/Portfolio.git
-   cd Portfolio
-   ```
-
-2. **Install dependencies**:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-3. **Run the application**:
-   ```bash
-   python app.py
-   ```
-
-4. **Open your browser** and visit:
-   ```
-   http://localhost:5000
-   ```
+- **Frontend**: HTML5, CSS3, JavaScript
+- **Framework**: Bootstrap 5
+- **Libraries**: 
+  - AOS (Animate On Scroll)
+  - Particles.js
+  - Typed.js
+  - Font Awesome
+- **Deployment**: Vercel
 
 ## 📁 Project Structure
 
 ```
-Portfolio/
-├── app.py                  # Flask application
-├── requirements.txt        # Python dependencies
-├── Procfile               # Render deployment configuration
-├── templates/
-│   └── index.html         # Main HTML template
+Copy_Portfolio/
+├── index.html  
 ├── static/
 │   ├── css/
-│   │   └── style.css      # Custom styles
+│   │   └── style.css 
 │   ├── js/
-│   │   └── script.js      # JavaScript functionality
-│   ├── images/            # Project images and profile photo
-│   └── resume.pdf         # Resume file
+│   │   └── script.js 
+│   ├── images/  
+│   └── resume.pdf 
+├── vercel.json 
+└── README.md  
 ```
 
-## 🎨 Customization
+## 🚀 Deployment to Vercel
+
+### Method 1: Deploy via Vercel Dashboard (Recommended)
+
+1. **Sign up/Login** to [Vercel](https://vercel.com)
+
+2. **Import Git Repository**:
+   - Click "New Project"
+   - Import your GitHub repository
+   - Vercel will auto-detect it as a static site
+
+3. **Deploy**:
+   - Click "Deploy"
+   - Your site will be live in seconds!
+
+### Method 2: Deploy via Vercel CLI
+
+1. **Install Vercel CLI**:
+   ```bash
+   npm install -g vercel
+   ```
+
+2. **Login to Vercel**:
+   ```bash
+   vercel login
+   ```
+
+3. **Deploy**:
+   ```bash
+   vercel
+   ```
+
+4. **Production Deployment**:
+   ```bash
+   vercel --prod
+   ```
+
+## 🔧 Local Development
+
+1. **Clone the repository**:
+   ```bash
+   git clone <your-repo-url>
+   cd Copy_Portfolio
+   ```
+
+2. **Open in browser**:
+   - Simply open `index.html` in your web browser
+   - Or use a local server:
+     ```bash
+     # Python 3
+     python -m http.server 8000
+     
+     # Node.js
+     npx serve
+     ```
+
+3. **View**:
+   - Navigate to `http://localhost:8000`
+
+## 📝 Customization
 
 ### Update Skills
-Edit the skills in `app.py`:
-```python
-skills = [
-    {'category': 'Programming', 'items': ['Python', 'R', 'SQL']},
-    # Add your skills here
-]
+Edit the skills array in `static/js/script.js` (line ~190):
+
+```javascript
+const skills = [
+    {'category': 'Programming', 'items': ['Python', 'R', 'SQL', ...]},
+    // Add your categories and skills here
+];
 ```
 
 ### Update Projects
-Modify project details in `templates/index.html` in the Projects section.
+Edit project sections in `index.html` (starting at line ~268)
 
-### Change Contact Email
-Update the FormSubmit email in `templates/index.html`:
-```html
-<form action="https://formsubmit.co/your-email@example.com" method="POST">
-```
+### Update Resume
+Replace `static/resume.pdf` with your updated resume
 
-## 🌐 Deployment on Render
+### Update Images
+Add your images to `static/images/` and update references in `index.html`
 
-1. Push your code to GitHub
-2. Create a new **Web Service** on Render
-3. Connect your GitHub repository
-4. Render will automatically detect the `Procfile` and deploy your app
-5. Your portfolio will be live at `https://your-app-name.onrender.com`
+## 🌟 Features to Note
 
+- **No Backend Required**: Completely static site - no server needed!
+- **Instant Loading**: Deployed on Vercel's edge network
+- **Free Hosting**: Vercel's free tier is perfect for portfolios
+- **Auto HTTPS**: SSL certificate automatically configured
+- **Custom Domain**: Can easily add your own domain in Vercel settings
+
+## 📧 Contact Form
+
+The contact form uses [FormSubmit](https://formsubmit.co/), a free form backend service. No registration needed - it works automatically!
+
+## 🎨 Color Scheme
+
+- Primary: `#667eea` (Purple-Blue)
+- Secondary: `#764ba2` (Purple)
+- Accent: Gradient from primary to secondary
+
+## 📱 Browser Support
+
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+- Mobile browsers
+
+## 📄 License
+
+© 2025 Sneha Uppu. All rights reserved.
+
+## 🙏 Acknowledgments
+
+- Bootstrap for the responsive framework
+- Font Awesome for icons
+- AOS for scroll animations
+- Particles.js for background effects
+- Typed.js for typing animations
+
+---
+
+**Note**: This portfolio was converted from Flask to a static site for better performance and instant loading on Vercel!

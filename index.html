@@ -17,8 +17,11 @@
     <!-- AOS Animation Library -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
+    <!-- Devicon - Programming Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+    
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="static/css/style.css">
 </head>
 <body>
     <!-- Navigation -->
@@ -71,15 +74,15 @@
                         Where Curiosity Meets Code - Crafting Solutions That Matter
                     </p>
                     <div class="hero-buttons">
-                        <a href="#projects" class="btn btn-outline-light btn-lg me-3" target="_blank">
+                        <a href="#projects" class="btn btn-outline-light btn-lg me-3">
                             View Projects
                         </a>
-                        <a href="{{ url_for('static', filename='resume.pdf') }}" class="btn btn-outline-light btn-lg me-3" target="_blank">
+                        <a href="static/resume.pdf" class="btn btn-outline-light btn-lg me-3" target="_blank">
                             <i class="fas fa-download"></i> Resume
                         </a>
                     </div>
                     <div class="social-links mt-4">
-                        <a href="https://github.com/Sui-Generis-14" target="_blank" class="social-icon">
+                        <a href="https://github.com/uppusneha11" target="_blank" class="social-icon">
                             <i class="fab fa-github"></i>
                         </a>
                         <a href="https://www.linkedin.com/in/sneha-uppu-6a019b238/" target="_blank" class="social-icon">
@@ -90,22 +93,6 @@
                         </a>
                     </div>
                 </div>
-                <!-- <div class="col-lg-6" data-aos="fade-left">
-                    <div class="hero-image">
-                        <div class="floating-card">
-                            <i class="fas fa-code fa-3x"></i>
-                            <p class="mt-2 mb-0">Clean Code</p>
-                        </div>
-                        <div class="floating-card" style="animation-delay: 0.5s;">
-                            <i class="fas fa-laptop-code fa-3x"></i>
-                            <p class="mt-2 mb-0">Responsive Design</p>
-                        </div>
-                        <div class="floating-card" style="animation-delay: 1s;">
-                            <i class="fas fa-rocket fa-3x"></i>
-                            <p class="mt-2 mb-0">Fast Performance</p>
-                        </div>
-                    </div>
-                </div> -->
             </div>
         </div>
         <div class="scroll-down">
@@ -127,13 +114,13 @@
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-4 mb-lg-0" data-aos="fade-right">
                     <div class="about-image">
-                        <img src="{{url_for('static',filename='images/profile.jpg')}}" alt="Sneha Uppu" class="profile-photo">
+                        <img src="static/images/profile.jpg" alt="Sneha Uppu" class="profile-photo">
                     </div>
                 </div>
                 <div class="col-lg-6" data-aos="fade-left">
                     <h3 class="h2 mb-4">Hello! I'm Sneha Uppu</h3>
                     <p class="lead mb-4">
-                        A passionate Computer Science Graduate Student at the George Washington Usnitersity, with a strong focus on data analytics, data science, and applied machine learning. 
+                        A passionate Computer Science Graduate Student at the George Washington University, with a strong focus on data analytics, data science, and applied machine learning. 
                     </p>
                     <p class="mb-4">
                         My journey in tech is driven by an insatiable curiosity to understand how data tells stories and how technology can transform those stories into actionable insights.
@@ -141,8 +128,8 @@
                     </p>
                     <p class="mb-4">
                         My work spans both analytical and engineering-oriented problem solving, combining data analysis with practical implementation. 
-                        I’m naturally curious and enjoy learning new tools, improving workflows, and understanding how technical decisions translate into real-world impact. 
-                        I’m especially motivated by roles where data is used to inform decisions, drive outcomes, and solve meaningful problems.
+                        I'm naturally curious and enjoy learning new tools, improving workflows, and understanding how technical decisions translate into real-world impact. 
+                        I'm especially motivated by roles where data is used to inform decisions, drive outcomes, and solve meaningful problems.
                     </p>
                 </div>
             </div>
@@ -269,19 +256,46 @@
                 <div class="col-lg-6 col-md-6 mb-4" data-aos="fade-up">
                     <div class="project-card">
                         <div class="project-image">
-                            <img src="{{ url_for('static', filename='images/FAERS.jpg') }}" alt="FAERS Project">
+                            <img src="static/images/airline-ontime.jpg" alt="Airline On-Time Performance Project">
+                        </div>
+                        <div class="project-body">
+                            <h3 class="project-title">Airline On-Time Performance</h3>
+                            <p class="project-description">Developed a production-grade data engineering pipeline to process U.S. Department of Transportation (DOT) Airline On-Time Performance data, automatically ingesting monthly ZIP releases containing millions of flight records with details on delays, cancellations, carriers, routes, and performance metrics. 
+                                Using Python and Apache Airflow, the system performs robust data quality validation, cleaning of inconsistent fields, schema enforcement, and partitioning to create optimized analytics tables. 
+                                The pipeline culminates in an interactive Tableau dashboard that visualizes critical insights such as average delays by carrier and route, cancellation trends, seasonal patterns, and airline rankings, enabling stakeholders to monitor operational reliability and identify improvement opportunities.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Python</span>
+                                <span class="project-tag">SQL</span>
+                                <span class="project-tag">Airflow</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/uppusneha11/Airline_OnTime_Performance" target="_blank" class="project-link primary">
+                                    <i class="fab fa-github"></i> View Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="col-lg-6 col-md-6 mb-4" data-aos="fade-up">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="static/images/FAERS.jpg" alt="FAERS Project">
                         </div>
                         <div class="project-body">
                             <h3 class="project-title">FAERS - Adverse Drug Reactions</h3>
                             <p class="project-description">Created a comprehensive pharmacovigilance analysis platform for the FDA Adverse Event Reporting System (FAERS), processing over 18 million real-world adverse drug reaction reports spanning multiple years and quarters. 
                                                             The project standardizes nearly 1 million inconsistent drug names, dosages, and reaction terms using Python and SQL, then applies statistical association mining, synergy ratio calculations, and dose-response modeling to uncover significant drug-symptom patterns, interaction risks, and escalation signals at higher dosages. 
-                                                            Interactive Plotly dashboards provide dynamic exploration of symptom frequency, interaction networks, dosage effects, and top safety signals, supporting evidence-based post-marketing drug safety monitoring and regulatory insights. </p>
+                                                            Interactive Plotly dashboards provide dynamic exploration of symptom frequency, interaction networks, dosage effects, and top safety signals, supporting evidence-based post-marketing drug safety monitoring and regulatory insights. </p>
                             <div class="project-tags">
                                 <span class="project-tag">Python</span>
                                 <span class="project-tag">SQL</span>
+                                <span class="project-tag">FastAPI</span>
+                                <span class="project-tag">Pandas</span>
                             </div>
                             <div class="project-links">
-                                <a href="https://github.com/Sui-Generis-14/FAERS-Drug-Safety-Pharmacovigilance-Analysis" target="_blank" class="project-link primary">
+                                <a href="https://github.com/uppusneha11/FAERS_Drug_Safety_Analysis" target="_blank" class="project-link primary">
                                     <i class="fab fa-github"></i> View Code
                                 </a>
                             </div>
@@ -289,11 +303,11 @@
                     </div>
                 </div>
                 
-                <!-- Project 2 -->
+                <!-- Project 3 -->
                 <div class="col-lg-6 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="project-card">
                         <div class="project-image">
-                            <img src="{{ url_for('static', filename='images/Similar Image Finder.jpg') }}" alt="Customer Churn Predictor">
+                            <img src="static/images/Similar Image Finder.jpg" alt="Customer Churn Predictor">
                         </div>
                         <div class="project-body">
                             <h3 class="project-title">Similar Image Finder</h3>
@@ -303,31 +317,10 @@
                             <div class="project-tags">
                                 <span class="project-tag">Python</span>
                                 <span class="project-tag">Scikit-learn</span>
+                                <span class="project-tag">Matplotlib</span>
                             </div>
                             <div class="project-links">
-                                <a href="https://github.com/Sui-Generis-14/Similar-Image-Finder" target="_blank" class="project-link primary">
-                                    <i class="fab fa-github"></i> View Code
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="col-lg-6 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img src="{{ url_for('static', filename='images/Recipe Recommendation System.jpg') }}" alt="Recipe Recommendation System">
-                        </div>
-                        <div class="project-body">
-                            <h3 class="project-title">Recipe Recommendation System</h3>
-                            <p class="project-description">The Recipe Recommendation System is designed to help users discover recipes based on the ingredients they already have. Using a K-Nearest Neighbors (KNN) approach, the system matches user-input ingredients with a structured recipe dataset to identify the most relevant and similar recipes. In addition to direct matches, the model suggests alternative recipes with overlapping ingredient profiles, encouraging exploration and reducing food waste. This project highlights my understanding of recommendation logic, feature representation, and applying machine learning techniques to practical, user-driven problems.</p>
-                            <div class="project-tags">
-                                <span class="project-tag">Python</span>
-                                <span class="project-tag">Bootstrap</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://github.com/Sui-Generis-14/Recipe_Recommendation_System" target="_blank" class="project-link primary">
+                                <a href="https://github.com/uppusneha11/Similar_Image_Finder" target="_blank" class="project-link primary">
                                     <i class="fab fa-github"></i> View Code
                                 </a>
                             </div>
@@ -339,11 +332,37 @@
                 <div class="col-lg-6 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
                     <div class="project-card">
                         <div class="project-image">
-                            <img src="{{ url_for('static', filename='images/amazon-prime-video.jpg') }}" alt="Recipe Recommendation System">
+                            <img src="static/images/Recipe Recommendation System.jpg" alt="Recipe Recommendation System">
+                        </div>
+                        <div class="project-body">
+                            <h3 class="project-title">Recipe Recommendation System</h3>
+                            <p class="project-description">The Recipe Recommendation System is designed to help users discover recipes based on the ingredients they already have. 
+                                Using a K-Nearest Neighbors (KNN) approach, the system matches user-input ingredients with a structured recipe dataset to identify the most relevant and similar recipes. 
+                                In addition to direct matches, the model suggests alternative recipes with overlapping ingredient profiles, encouraging exploration and reducing food waste. 
+                                This project highlights my understanding of recommendation logic, feature representation, and applying machine learning techniques to practical, user-driven problems.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Python</span>
+                                <span class="project-tag">Pandas</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://github.com/uppusneha11/Recipe_Recommendation_System" target="_blank" class="project-link primary">
+                                    <i class="fab fa-github"></i> View Code
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="col-lg-6 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="static/images/amazon-prime-video.jpg" alt="Recipe Recommendation System">
                         </div>
                         <div class="project-body">
                             <h3 class="project-title">Prime Video Analysis Dashboard</h3>
-                            <p class="project-description">This project involves building an interactive Tableau dashboard to analyze Prime Video’s global content library, covering over 6,000 movies and TV shows across genres, release years, ratings, and regions. The dashboard enables exploration of content growth trends, genre popularity, regional distribution, and shifts in audience preferences over time. By transforming raw catalog data into clear visual insights, this project demonstrates my ability to clean data, design analytical dashboards, and communicate complex patterns through effective data visualization and storytelling.</p>
+                            <p class="project-description">This project involves building an interactive Tableau dashboard to analyze Prime Video's global content library, covering over 6,000 movies and TV shows across genres, release years, ratings, and regions. 
+                                The dashboard enables exploration of content growth trends, genre popularity, regional distribution, and shifts in audience preferences over time. By transforming raw catalog data into clear visual insights, this project demonstrates my ability to clean data, design analytical dashboards, and communicate complex patterns through effective data visualization and storytelling.</p>
                             <div class="project-tags">
                                 <span class="project-tag">Tableau</span>
                             </div>
@@ -370,10 +389,24 @@
                     <div class="title-underline"></div>
                 </div>
             </div>
+            
+            <!-- Scrolling Skills Carousel -->
+            <div class="skills-scroll-container">
+                <div class="skills-scroll-wrapper">
+                    <div class="skills-scroll" id="skills-scroll-1">
+                        <!-- Skills icons will be loaded dynamically -->
+                    </div>
+                    <div class="skills-scroll" id="skills-scroll-2">
+                        <!-- Duplicate for seamless loop -->
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Traditional Skills Grid -->
             <div class="row">
                 <div class="col-lg-12 mx-auto">
                     <div id="skills-container" class="skills-grid">
-                        <!-- Skills will be loaded dynamically -->
+                        <!-- Skills categories will be loaded dynamically -->
                     </div>
                 </div>
             </div>
@@ -458,7 +491,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <p class="mb-2">&copy; 2025 Sneha Uppu. All rights reserved.</p>
+                    <p class="mb-2">&copy; 2026 Sneha Uppu. All rights reserved.</p>
                 </div>
             </div>
         </div>
@@ -477,7 +510,7 @@
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
     
     <!-- Custom JS -->
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="static/js/script.js"></script>
 </body>
 </html>
 
