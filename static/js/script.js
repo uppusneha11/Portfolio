@@ -157,7 +157,7 @@ function loadSkills() {
     const scrollContainer1 = document.getElementById('skills-scroll-1');
     const scrollContainer2 = document.getElementById('skills-scroll-2');
     
-    // Skills data - ADD YOUR SKILLS HERE
+    // Skills data
     const skills = [
         {'category': 'Programming', 'items': ['Python', 'R', 'SQL', 'Java', 'HTML', 'CSS', 'JavaScript', 'Bootstrap']},
         {'category': 'Data Engineering', 'items': ['ETL Pipelines', 'BeautifulSoup (Web Scraping)', 'Apache Airflow', 'Docker', 'Data Validation']},
@@ -169,7 +169,7 @@ function loadSkills() {
         {'category': 'Soft Skills', 'items': ['Team Collaboration', 'Problem-Solving', 'Communication (Written & Verbal)', 'Time Management', 'Adaptability', 'Leadership']}
     ];
     
-    // Icon mappings \
+    // Icon mappings
     const availableIconMappings = {
         // Programming 
         'python': { name: 'Python', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
