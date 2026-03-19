@@ -259,25 +259,53 @@
                             <img src="static/images/airline-ontime.jpg" alt="Airline On-Time Performance Project">
                         </div>
                         <div class="project-body">
-                            <h3 class="project-title">Airline On-Time Performance</h3>
-                            <p class="project-description">Developed a production-grade data engineering pipeline to process U.S. Department of Transportation (DOT) Airline On-Time Performance data, automatically ingesting monthly ZIP releases containing millions of flight records with details on delays, cancellations, carriers, routes, and performance metrics. 
-                                Using Python and Apache Airflow, the system performs robust data quality validation, cleaning of inconsistent fields, schema enforcement, and partitioning to create optimized analytics tables. 
-                                The pipeline culminates in an interactive Tableau dashboard that visualizes critical insights such as average delays by carrier and route, cancellation trends, seasonal patterns, and airline rankings, enabling stakeholders to monitor operational reliability and identify improvement opportunities.</p>
+                            <h3 class="project-title">Airline On-Time Performance Pipeline</h3>
+                            <p class="project-description">This project focuses on building the full data system and making it interactive. I developed a data pipeline that ingests raw airline data, stores it in AWS S3, cleans and transforms it, and loads it into PostgreSQL for analysis. 
+                                                            The pipeline is designed to handle large datasets and run regularly using Airflow. On top of that, I built a Streamlit app where users can choose routes and compare airlines based on historical delay and cancellation data. 
+                                                            Instead of just showing charts, the app helps answer a real-world question - which airline is likely to perform better for a trip.</p>
                             <div class="project-tags">
                                 <span class="project-tag">Python</span>
-                                <span class="project-tag">SQL</span>
+                                <span class="project-tag">PostgreSQL</span>
+                                <span class="project-tag">Streamlit App</span>
                                 <span class="project-tag">Airflow</span>
+                                <span class="project-tag">Docker</span>
+                                <span class="project-tag">AWS S3</span>
                             </div>
                             <div class="project-links">
                                 <a href="https://github.com/uppusneha11/Airline_OnTime_Performance" target="_blank" class="project-link primary">
                                     <i class="fab fa-github"></i> View Code
+                                </a>
+                                <a href="https://flightiq.streamlit.app/" target="_blank" class="project-link primary">
+                                    <i class="fas fa-external-link-alt"></i> View Demo
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="col-lg-6 col-md-6 mb-4" data-aos="fade-up">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="static/images/airline-ontime.jpg" alt="Airline On-Time Performance Project">
+                        </div>
+                        <div class="project-body">
+                            <h3 class="project-title">Airline Performance Tableau Dashboard</h3>
+                            <p class="project-description">This project focuses on analyzing airline performance using an interactive Tableau dashboard built on U.S. DOT flight data. The dashboard highlights key insights like average delays, cancellations, airline rankings, and how performance changes across seasons and routes. 
+                                                            It allows users to quickly compare airlines and understand which ones are more reliable. The main goal here was to take raw, messy data and turn it into something clear and useful through good visualization and storytelling.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Tableau</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://public.tableau.com/app/profile/sneha.uppu/viz/AirlineOn-TimePerformance_17736107336330/Dashboard" target="_blank" class="project-link primary">
+                                    <i class="fas fa-external-link-alt"></i> View Dashboard
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Project 2 -->
+                <!-- Project 3 -->
                 <div class="col-lg-6 col-md-6 mb-4" data-aos="fade-up">
                     <div class="project-card">
                         <div class="project-image">
@@ -293,6 +321,10 @@
                                 <span class="project-tag">SQL</span>
                                 <span class="project-tag">FastAPI</span>
                                 <span class="project-tag">Pandas</span>
+                                <span class="project-tag">Plotly</span>
+                                <span class="project-tag">Statistical Association Mining</span>
+                                <span class="project-tag">Synergy Ratio</span>
+                                <span class="project-tag">Dose-Response Modeling</span>
                             </div>
                             <div class="project-links">
                                 <a href="https://github.com/uppusneha11/FAERS_Drug_Safety_Analysis" target="_blank" class="project-link primary">
@@ -303,7 +335,7 @@
                     </div>
                 </div>
                 
-                <!-- Project 3 -->
+                <!-- Project 4 -->
                 <div class="col-lg-6 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="project-card">
                         <div class="project-image">
@@ -318,34 +350,13 @@
                                 <span class="project-tag">Python</span>
                                 <span class="project-tag">Scikit-learn</span>
                                 <span class="project-tag">Matplotlib</span>
+                                <span class="project-tag">OpenAI</span>
+                                <span class="project-tag">PyTorch</span>
+                                <span class="project-tag">CLIP</span>
+                                <span class="project-tag">K-Nearest Neighbors</span>
                             </div>
                             <div class="project-links">
                                 <a href="https://github.com/uppusneha11/Similar_Image_Finder" target="_blank" class="project-link primary">
-                                    <i class="fab fa-github"></i> View Code
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 4 -->
-                <div class="col-lg-6 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
-                    <div class="project-card">
-                        <div class="project-image">
-                            <img src="static/images/Recipe Recommendation System.jpg" alt="Recipe Recommendation System">
-                        </div>
-                        <div class="project-body">
-                            <h3 class="project-title">Recipe Recommendation System</h3>
-                            <p class="project-description">The Recipe Recommendation System is designed to help users discover recipes based on the ingredients they already have. 
-                                Using a K-Nearest Neighbors (KNN) approach, the system matches user-input ingredients with a structured recipe dataset to identify the most relevant and similar recipes. 
-                                In addition to direct matches, the model suggests alternative recipes with overlapping ingredient profiles, encouraging exploration and reducing food waste. 
-                                This project highlights my understanding of recommendation logic, feature representation, and applying machine learning techniques to practical, user-driven problems.</p>
-                            <div class="project-tags">
-                                <span class="project-tag">Python</span>
-                                <span class="project-tag">Pandas</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="https://github.com/uppusneha11/Recipe_Recommendation_System" target="_blank" class="project-link primary">
                                     <i class="fab fa-github"></i> View Code
                                 </a>
                             </div>
@@ -357,25 +368,55 @@
                 <div class="col-lg-6 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
                     <div class="project-card">
                         <div class="project-image">
-                            <img src="static/images/amazon-prime-video.jpg" alt="Recipe Recommendation System">
+                            <img src="static/images/Recipe Recommendation System.jpg" alt="Recipe Recommendation System">
                         </div>
                         <div class="project-body">
-                            <h3 class="project-title">Prime Video Analysis Dashboard</h3>
-                            <p class="project-description">This project involves building an interactive Tableau dashboard to analyze Prime Video's global content library, covering over 6,000 movies and TV shows across genres, release years, ratings, and regions. 
-                                The dashboard enables exploration of content growth trends, genre popularity, regional distribution, and shifts in audience preferences over time. By transforming raw catalog data into clear visual insights, this project demonstrates my ability to clean data, design analytical dashboards, and communicate complex patterns through effective data visualization and storytelling.</p>
+                            <h3 class="project-title">Recipe Recommendation System</h3>
+                            <p class="project-description">The Recipe Recommendation System is designed to help users discover recipes based on the ingredients they already have. 
+                                                            Using a K-Nearest Neighbors (KNN) approach, the system matches user-input ingredients with a structured recipe dataset to identify the most relevant and similar recipes. 
+                                                            In addition to direct matches, the model suggests alternative recipes with overlapping ingredient profiles, encouraging exploration and reducing food waste. 
+                                                            This project highlights my understanding of recommendation logic, feature representation, and applying machine learning techniques to practical, user-driven problems.</p>
                             <div class="project-tags">
-                                <span class="project-tag">Tableau</span>
+                                <span class="project-tag">Python</span>
+                                <span class="project-tag">Pandas</span>
+                                <span class="project-tag">Scikit-learn</span>
+                                <span class="project-tag">K-Nearest Neighbors</span>
+                                <span class="project-tag">Flask</span>
+                                <span class="project-tag">HTML</span>
+                                <span class="project-tag">CSS</span>
+                                <span class="project-tag">JavaScript</span>
                             </div>
                             <div class="project-links">
-                                <a href="https://public.tableau.com/app/profile/sneha.uppu/viz/PrimeVideo_17551003215490/Dashboard1" target="_blank" class="project-link">
-                                    <i class="fas fa-external-link-alt"></i> Live Demo
+                                <a href="https://github.com/uppusneha11/Recipe_Recommendation_System" target="_blank" class="project-link primary">
+                                    <i class="fab fa-github"></i> View Code
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Add more projects as needed -->
+                <!-- Project 6 -->
+                <div class="col-lg-6 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="static/images/amazon-prime-video.jpg" alt="Recipe Recommendation System">
+                        </div>
+                        <div class="project-body">
+                            <h3 class="project-title">Prime Video Analysis Dashboard</h3>
+                            <p class="project-description">This project involves building an interactive Tableau dashboard to analyze Prime Video's global content library, covering over 6,000 movies and TV shows across genres, release years, ratings, and regions. 
+                                                            The dashboard enables exploration of content growth trends, genre popularity, regional distribution, and shifts in audience preferences over time. 
+                                                            By transforming raw catalog data into clear visual insights, this project demonstrates my ability to clean data, design analytical dashboards, and communicate complex patterns through effective data visualization and storytelling.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Tableau</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="https://public.tableau.com/app/profile/sneha.uppu/viz/PrimeVideo_17551003215490/Dashboard1" target="_blank" class="project-link">
+                                    <i class="fas fa-external-link-alt"></i> View Dashboard
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
