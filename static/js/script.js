@@ -161,8 +161,8 @@ function loadSkills() {
     const skills = [
         {'category': 'Programming', 'items': ['Python', 'R', 'SQL', 'Java', 'HTML', 'CSS', 'JavaScript', 'Bootstrap']},
         {'category': 'Data Engineering', 'items': ['ETL Pipelines', 'BeautifulSoup (Web Scraping)', 'Apache Airflow', 'Docker', 'Data Validation']},
-        {'category': 'Data Visualization', 'items': ['Tableau','Power BI','Plotly', 'Matplotlib', 'Seaborn']},
-        {'category': 'Data Science', 'items': ['Pandas', 'NumPy', 'Scikit-learn', 'PyTorch', 'Tensorflow', 'Keras', 'API']},
+        {'category': 'Data Visualization', 'items': ['Tableau','Power BI','Plotly', 'Matplotlib', 'Seaborn', 'Streamlit']},
+        {'category': 'Data Science', 'items': ['Pandas', 'NumPy', 'Scikit-learn', 'PyTorch', 'Tensorflow', 'Keras', 'API', 'Large Language Models (LLMs)']},
         {'category': 'Databases & Cloud', 'items': ['MySQL', 'PostgreSQL', 'Google Firebase', 'Firestore', 'AWS']},
         {'category': 'Tools & Platforms', 'items': ['Git', 'GitHub', 'Microsoft Office', 'Salesforce', 'Jira', 'MATLAB', 'fly.io']},
         {'category': 'IDEs', 'items': ['VS Code', 'Google Colab', 'Jupyter Notebook']},
@@ -189,6 +189,7 @@ function loadSkills() {
         // Data Visualization
         'tableau': { name: 'Tableau', imgSrc: 'https://cdn.worldvectorlogo.com/logos/tableau-software.svg' },
         'matplotlib': { name: 'Matplotlib', imgSrc: 'https://upload.wikimedia.org/wikipedia/commons/8/84/Matplotlib_icon.svg' },
+        'streamlit': { name: 'Streamlit', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/streamlit/streamlit-original.svg' },
         
         // Data Science (all images for consistency)
         'pandas': { name: 'Pandas', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg' },
@@ -197,6 +198,7 @@ function loadSkills() {
         'pytorch': { name: 'PyTorch', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg' },
         'tensorflow': { name: 'TensorFlow', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg' },
         'keras': { name: 'Keras', imgSrc: 'https://upload.wikimedia.org/wikipedia/commons/a/ae/Keras_logo.svg' },
+        'large language models (llms)': { name: 'Large Language Models (LLMs)', imgSrc: 'https://cdn.jsdelivr.net/gh/simple-icons/simple-icons/icons/openai.svg' },
         
         // Databases & Cloud
         'mysql': { name: 'MySQL', imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
