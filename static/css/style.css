@@ -206,12 +206,27 @@ html {
     text-justify: inter-word;
 }
 
-.education-banner {
-    background: var(--light-color);
-    border-radius: 12px;
-    padding: 1rem 1.25rem;
-    margin: -1rem -1rem 1rem;
-    border: 1px solid #e2e8f0;
+.education-item {
+    border-radius: 0;
+}
+
+.education-subheader {
+    padding-top: 8px;
+}
+
+.education-item .accordion-header {
+    padding: 2px 25px;
+    background-color: rgba(102, 126, 234, 0.08);
+}
+
+.education-item .accordion-header + .accordion-header {
+    margin-top: 0;
+}
+
+.education-item .accordion-header:hover,
+.education-item .accordion-header.active {
+    background-color: rgba(102, 126, 234, 0.08);
+    box-shadow: none;
 }
 
 .education-banner h3,
@@ -318,7 +333,8 @@ html {
     display: flex;
     flex-wrap: wrap;
     gap: 0.5rem;
-    margin-bottom: 1rem;
+    margin-top: auto;
+    margin-bottom: 0;
 }
 
 .project-tag {
@@ -333,7 +349,7 @@ html {
 .project-links {
     display: flex;
     gap: 1rem;
-    margin-top: 1rem;
+    margin-top: 0.9rem;
 }
 
 .project-link {
