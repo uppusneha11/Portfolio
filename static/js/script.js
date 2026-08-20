@@ -160,13 +160,13 @@ function loadSkills() {
     // Skills data
     const skills = [
         {'category': 'Programming', 'items': ['Python', 'R', 'SQL', 'Java', 'HTML', 'CSS', 'JavaScript', 'Bootstrap']},
-        {'category': 'Data Engineering', 'items': ['ETL Pipelines', 'BeautifulSoup (Web Scraping)', 'Apache Airflow', 'Docker', 'Data Validation']},
-        {'category': 'Data Visualization', 'items': ['Tableau','Power BI','Plotly', 'Matplotlib', 'Seaborn', 'Streamlit']},
-        {'category': 'Data Science', 'items': ['Pandas', 'NumPy', 'Scikit-learn', 'PyTorch', 'Tensorflow', 'Keras', 'API', 'Large Language Models (LLMs)']},
+        {'category': 'Data Engineering', 'items': ['ETL Pipelines','FastAPI', 'BeautifulSoup', 'Apache Airflow', 'Docker', 'DuckDB', 'SQLite', 'SQLAlchemy']},
+        {'category': 'Data Visualization', 'items': ['Tableau', 'Power BI', 'Plotly', 'Matplotlib', 'Seaborn', 'Streamlit']},
+        {'category': 'Data Science', 'items': ['Pandas', 'NumPy', 'Scikit-learn', 'PyTorch', 'Tensorflow', 'Keras', 'OpenAI API', 'Gemini API', 'LLMs', 'BERT', 'CLIP']},
         {'category': 'Databases & Cloud', 'items': ['MySQL', 'PostgreSQL', 'Google Firebase', 'Firestore', 'AWS']},
-        {'category': 'Tools & Platforms', 'items': ['Git', 'GitHub', 'Microsoft Office', 'Salesforce', 'Jira', 'MATLAB', 'fly.io']},
+        {'category': 'Tools & Platforms', 'items': ['Git', 'GitHub', 'Microsoft Office', 'Salesforce', 'Jira', 'MATLAB', 'fly.io', 'n8n', 'MCP']},
         {'category': 'IDEs', 'items': ['VS Code', 'Google Colab', 'Jupyter Notebook']},
-        {'category': 'Soft Skills', 'items': ['Team Collaboration', 'Problem-Solving', 'Communication (Written & Verbal)', 'Time Management', 'Adaptability', 'Leadership']}
+        {'category': 'Soft Skills', 'items': ['Team Collaboration', 'Problem Solving', 'Communication (Written & Verbal)', 'Time Management', 'Adaptability', 'Leadership']}
     ];
     
     // Icon mappings
