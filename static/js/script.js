@@ -167,25 +167,38 @@ function loadSkills() {
         {'category': 'Cloud & MLOps', 'items': ['Amazon Web Services', 'AWS SageMaker', 'Microsoft Azure', 'Google Cloud Platform (GCP)', 'Docker', 'Git', 'GitHub', 'CI/CD', 'Jupyter Notebook']},
         {'category': 'AI/ML Techniques', 'items': ['ML', 'NLP', 'GenAI', 'LLMs', 'RAG', 'Predictive Modeling', 'A/B Testing', 'Statistical Analysis', 'Causal Inference', 'Cohort Analysis', 'Funnel Analysis', 'Feature Engineering', 'MLOps', 'Information Retrieval', 'Recommendation Systems']},
         {'category': 'Business & Methodology', 'items': ['Salesforce CRM', 'Requirements Gathering', 'Business Requirements Documents (BRDs)', 'Gap Analysis', 'Process Mapping', 'UAT', 'Data Governance', 'Data Quality', 'Agile', 'Scrum', 'JIRA', 'Confluence', 'Cross-Functional Stakeholder Management']},
+        {'category': 'Soft Skills', 'items': ['Team Collaboration', 'Problem Solving', 'Communication (Written & Verbal)', 'Time Management', 'Adaptability', 'Leadership']}
     ];
     
-    // Give each listed skill a fitting brand mark or a Font Awesome symbol.
+    // Use authentic vendor/project logos only; skills without an official logo are omitted from the ribbon.
     const availableIconMappings = {
         'python': { imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg' },
-        'sql': { icon: 'fas fa-database' },
         'r': { imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/r/r-original.svg' },
+        'bash': { imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg' },
         'pandas': { imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pandas/pandas-original.svg' },
         'numpy': { imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/numpy/numpy-original.svg' },
         'scikit-learn': { imgSrc: 'https://upload.wikimedia.org/wikipedia/commons/0/05/Scikit_learn_logo_small.svg' },
         'tensorflow': { imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg' },
         'pytorch': { imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg' },
+        'langchain': { imgSrc: 'https://cdn.simpleicons.org/langchain/1C3C3C' },
+        'scipy': { imgSrc: 'https://cdn.simpleicons.org/scipy/8CAAE6' },
         'tableau': { imgSrc: 'https://cdn.worldvectorlogo.com/logos/tableau-software.svg' },
         'tableau server': { imgSrc: 'https://cdn.worldvectorlogo.com/logos/tableau-software.svg' },
+        'power bi': { imgSrc: 'https://upload.wikimedia.org/wikipedia/commons/c/cf/New_Power_BI_Logo.svg' },
+        'looker': { imgSrc: 'https://cdn.simpleicons.org/looker/4285F4' },
         'streamlit': { imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/streamlit/streamlit-original.svg' },
+        'metabase': { imgSrc: 'https://cdn.simpleicons.org/metabase/509EE3' },
+        'plotly': { imgSrc: 'https://cdn.simpleicons.org/plotly/3F4F75' },
         'matplotlib': { imgSrc: 'https://upload.wikimedia.org/wikipedia/commons/8/84/Matplotlib_icon.svg' },
+        'apache spark': { imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apachespark/apachespark-original.svg' },
         'apache airflow': { imgSrc: 'https://upload.wikimedia.org/wikipedia/commons/d/de/AirflowLogo.png' },
+        'apache kafka': { imgSrc: 'https://cdn.simpleicons.org/apachekafka/231F20' },
+        'snowflake': { imgSrc: 'https://cdn.simpleicons.org/snowflake/29B5E8' },
+        'databricks': { imgSrc: 'https://cdn.simpleicons.org/databricks/FF3621' },
+        'google bigquery': { imgSrc: 'https://cdn.simpleicons.org/googlebigquery/669DF6' },
         'postgresql': { imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg' },
         'mysql': { imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg' },
+        'microsoft sql server': { imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-original.svg' },
         'mongodb': { imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg' },
         'redis': { imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg' },
         'docker': { imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg' },
@@ -195,66 +208,9 @@ function loadSkills() {
         'amazon web services': { imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg' },
         'microsoft azure': { imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg' },
         'google cloud platform (gcp)': { imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg' },
-        'salesforce crm': { imgSrc: 'https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg' },
+        'salesforce crm': { imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/salesforce/salesforce-original.svg' },
         'jira': { imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jira/jira-original.svg' },
-
-        'dax': { icon: 'fas fa-chart-column' },
-        'bash': { icon: 'fas fa-terminal' },
-        'xgboost': { icon: 'fas fa-tree' },
-        'nltk': { icon: 'fas fa-language' },
-        'langchain': { icon: 'fas fa-link' },
-        'scipy': { icon: 'fas fa-square-root-variable' },
-        'bert': { icon: 'fas fa-brain' },
-        'node2vec': { icon: 'fas fa-circle-nodes' },
-        'statsmodels': { icon: 'fas fa-chart-line' },
-        'seaborn': { icon: 'fas fa-chart-area' },
-        'plotly': { icon: 'fas fa-chart-line' },
-        'power bi': { icon: 'fas fa-chart-pie' },
-        'looker': { icon: 'fas fa-magnifying-glass-chart' },
-        'google data studio': { icon: 'fas fa-chart-column' },
-        'metabase': { icon: 'fas fa-table' },
-        'advanced excel (power query)': { icon: 'fas fa-file-excel' },
-        'apache spark': { icon: 'fas fa-bolt' },
-        'apache kafka': { icon: 'fas fa-tower-broadcast' },
-        'dbt': { icon: 'fas fa-arrows-rotate' },
-        'snowflake': { icon: 'fas fa-snowflake' },
-        'databricks': { icon: 'fas fa-layer-group' },
-        'amazon redshift': { icon: 'fas fa-database' },
-        'google bigquery': { icon: 'fas fa-magnifying-glass-chart' },
-        'azure synapse': { icon: 'fas fa-diagram-project' },
-        'etl/elt pipelines': { icon: 'fas fa-diagram-project' },
-        'data modeling': { icon: 'fas fa-cubes' },
-        'microsoft sql server': { icon: 'fas fa-database' },
-        'faiss': { icon: 'fas fa-magnifying-glass' },
-        'pinecone': { icon: 'fas fa-vector-square' },
-        'aws sagemaker': { icon: 'fas fa-brain' },
-        'ci/cd': { icon: 'fas fa-gears' },
-        'ml': { icon: 'fas fa-brain' },
-        'nlp': { icon: 'fas fa-comments' },
-        'genai': { icon: 'fas fa-wand-magic-sparkles' },
-        'llms': { icon: 'fas fa-robot' },
-        'rag': { icon: 'fas fa-book-open' },
-        'predictive modeling': { icon: 'fas fa-chart-line' },
-        'a/b testing': { icon: 'fas fa-vial' },
-        'statistical analysis': { icon: 'fas fa-calculator' },
-        'causal inference': { icon: 'fas fa-diagram-project' },
-        'cohort analysis': { icon: 'fas fa-users' },
-        'funnel analysis': { icon: 'fas fa-filter' },
-        'feature engineering': { icon: 'fas fa-screwdriver-wrench' },
-        'mlops': { icon: 'fas fa-gears' },
-        'information retrieval': { icon: 'fas fa-magnifying-glass' },
-        'recommendation systems': { icon: 'fas fa-thumbs-up' },
-        'requirements gathering': { icon: 'fas fa-clipboard-list' },
-        'business requirements documents (brds)': { icon: 'fas fa-file-lines' },
-        'gap analysis': { icon: 'fas fa-magnifying-glass-chart' },
-        'process mapping': { icon: 'fas fa-diagram-project' },
-        'uat': { icon: 'fas fa-list-check' },
-        'data governance': { icon: 'fas fa-shield-halved' },
-        'data quality': { icon: 'fas fa-circle-check' },
-        'agile': { icon: 'fas fa-arrows-spin' },
-        'scrum': { icon: 'fas fa-people-group' },
-        'confluence': { icon: 'fas fa-book' },
-        'cross-functional stakeholder management': { icon: 'fas fa-people-arrows-left-right' }
+        'confluence': { imgSrc: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/confluence/confluence-original.svg' }
     };
     
     // Extract and match skills
@@ -278,13 +234,6 @@ function loadSkills() {
                     return `
                         <div class="skill-icon-item" data-skill="${skill.originalName}">
                             <img src="${skill.imgSrc}" alt="${skill.originalName}" class="skill-icon-img">
-                            <span class="skill-tooltip">${skill.originalName}</span>
-                        </div>
-                    `;
-                } else {
-                    return `
-                        <div class="skill-icon-item" data-skill="${skill.originalName}">
-                            <i class="${skill.icon}"></i>
                             <span class="skill-tooltip">${skill.originalName}</span>
                         </div>
                     `;

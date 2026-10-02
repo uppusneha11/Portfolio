@@ -737,7 +737,7 @@ section[id] {
 
 #skills-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 30px;
 }
 
@@ -784,7 +784,13 @@ section[id] {
     transform: translateY(-2px);
 }
 
-@media (max-width: 768px) {
+@media (max-width: 991px) {
+    #skills-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 575px) {
     #skills-container {
         grid-template-columns: 1fr;
     }
