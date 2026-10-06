@@ -73,7 +73,8 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 const typed = new Typed('#typed-text', {
     strings: [
-        'Web Designer',
+        'Business Analyst',
+        'Data Analyst',
         'Data Scientist',
         'Data Engineer',
         'Tech Enthusiast',
